@@ -14,8 +14,9 @@ A fast Windows spotlight launcher for emoji, Unicode symbols, and kaomoji.
 
 Press a global hotkey, browse categories or search, copy a glyph, paste it anywhere. **14,870 items** in one fast, local-first launcher — no network, no account, no telemetry.
 
-<!-- Replace this block with a real screenshot of the popup once available -->
-> 📸 **Screenshot placeholder** — see [Adding screenshots](#adding-screenshots) below.
+<p align="center">
+  <img src="docs/screenshots/browse-emoji.png" width="560" alt="GlyphJet browsing emoji" />
+</p>
 
 ---
 
@@ -28,6 +29,16 @@ Press a global hotkey, browse categories or search, copy a glyph, paste it anywh
 - **Local-first** — the catalog is bundled in the app. Nothing leaves your machine.
 - **Copy only** — clicking a glyph writes plain Unicode text to the clipboard. GlyphJet never auto-pastes into other apps.
 - **System tray** — quick access to open the popup, settings, and exit.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/browse-emoji.png" width="280" alt="Browse emoji" />
+  <img src="docs/screenshots/browse-symbols.png" width="280" alt="Browse Unicode symbols" />
+  <img src="docs/screenshots/browse-kaomoji.png" width="280" alt="Browse kaomoji" />
+</p>
+
+The popup defaults to the last type and category you used. Tabs switch between emoji, symbols, and kaomoji; chips narrow the view; typing jumps to unified search.
 
 ## Why GlyphJet
 
@@ -102,19 +113,13 @@ The search engine is a FlexSearch wrapper with a bounded English synonym map. It
 
 The taxonomy builder validates that every category in `data.json` has a group (catch-all policy) and fails loudly if anything is unmapped.
 
-## Adding screenshots
+## Refreshing screenshots
 
-Screenshots are not bundled yet. To add them:
+The popup is small and clean — to refresh the bundled screenshots:
 
-1. Run `pnpm tauri dev` and capture the popup in browse mode, search mode, and the kaomoji view.
-2. Save them under `docs/screenshots/` (for example `browse.png`, `search.png`, `kaomoji.png`).
-3. Replace the placeholder block at the top of this README with:
-
-```markdown
-<p align="center">
-  <img src="docs/screenshots/browse.png" width="560" alt="GlyphJet browse view" />
-</p>
-```
+1. Run `pnpm tauri dev` and capture the popup in browse mode for each type.
+2. Save them under `docs/screenshots/` as `browse-emoji.png`, `browse-symbols.png`, `browse-kaomoji.png`.
+3. Keep the 840×660 (or similar) aspect ratio so the gallery row stays aligned.
 
 ## Development
 
