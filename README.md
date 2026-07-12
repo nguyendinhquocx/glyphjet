@@ -4,6 +4,7 @@
 
 A fast Windows spotlight launcher for emoji, Unicode symbols, and kaomoji.
 
+[![CI](https://github.com/nguyendinhquocx/glyphjet/actions/workflows/ci.yml/badge.svg)](https://github.com/nguyendinhquocx/glyphjet/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform: Windows 11](https://img.shields.io/badge/Platform-Windows%2011-0078D4.svg)](https://github.com/nguyendinhquocx/glyphjet/releases)
 [![Built with Tauri](https://img.shields.io/badge/Built%20with-Tauri%20v2-FFC131.svg)](https://v2.tauri.app)
