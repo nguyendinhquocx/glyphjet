@@ -1,10 +1,10 @@
-"""build_taxonomy.py — gộp category thô thành nhóm thân thiện.
+"""build_taxonomy.py — group raw categories into friendly display groups.
 
-Policy catch-all (ARCHITECTURE.md 4.2): mọi category trong data.json PHẢI có trong mapping.
-Nếu data update có category mới chưa match → fail loud + warning log.
-Items có category không match → vào nhóm "Misc" tương ứng + warning.
+Catch-all policy: every category in data.json MUST be mapped. The build
+fails loudly if any category is unmapped; unmapped items fall into a
+Misc group with a warning.
 
-Output: src-tauri/resources/taxonomy.json
+Output: src/taxonomy.json
 """
 from __future__ import annotations
 
@@ -14,10 +14,10 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA_PATH = ROOT / "src-tauri" / "resources" / "data.json"
-OUTPUT_PATH = ROOT / "src-tauri" / "resources" / "taxonomy.json"
+DATA_PATH = ROOT / "src" / "data.json"
+OUTPUT_PATH = ROOT / "src" / "taxonomy.json"
 
-# Mapping per ARCHITECTURE.md 4.2 — cover 9 emoji + 26 symbol + 93 kaomoji categories.
+# Mapping: cover 9 emoji + 26 symbol + 93 kaomoji categories.
 TAXONOMY: dict[str, list[dict]] = {
     "emoji": [
         {"id": "smileys", "label": "Smileys & Emotion", "categories": ["smileys-emotion"]},

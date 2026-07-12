@@ -1,5 +1,4 @@
-// commands.rs — Tauri IPC boundary (frontend gọi vào đây duy nhất).
-// Layering rule (STRUCTURE.md 5.1): delegate xuống clipboard/window/settings/hotkey.
+// commands.rs — Tauri IPC boundary. Frontend calls only these commands.
 
 use crate::{clipboard, hotkey, settings::Settings, window};
 use tauri::{Manager, Runtime};
@@ -45,8 +44,8 @@ pub fn save_settings<R: Runtime>(
     crate::settings::save(&app, &settings)
 }
 
-/// Đổi hotkey runtime. Trả true nếu register thành công, false nếu fail.
-/// KHÔNG silent fallback (ADR-05) — frontend phải báo lỗi rõ cho user.
+/// Change hotkey at runtime. Returns true if registered, false if the
+/// accelerator is invalid or already taken. No silent fallback.
 #[tauri::command]
 pub fn register_hotkey<R: Runtime>(
     app: tauri::AppHandle<R>,

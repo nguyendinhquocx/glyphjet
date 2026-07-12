@@ -1,10 +1,12 @@
-// hotkey.rs — register/unregister global shortcut.
-// Default Alt+; (ARCHITECTURE ADR-05). Register fail → trả false rõ, KHÔNG silent fallback.
+// hotkey.rs — register/unregister global shortcut. Default Alt+;.
+// Win+; is reserved by Windows at a low level and cannot be reliably
+// overridden, so it is only offered as an experimental option.
 
 use tauri::{AppHandle, Runtime};
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
-/// Đổi hotkey runtime. Trả true nếu register thành công, false nếu fail.
+/// Change hotkey at runtime. Returns true if registered, false if the
+/// accelerator is invalid or already taken.
 pub fn register<R: Runtime>(app: &AppHandle<R>, accelerator: &str) -> Result<bool, String> {
     app.global_shortcut()
         .unregister_all()

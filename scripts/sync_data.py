@@ -1,16 +1,25 @@
-"""sync_data.py — copy data.json từ web project + verify count.
+"""sync_data.py — copy data.json from the upstream web project and verify count.
 
-Usage: py -3.13 scripts/sync_data.py
+This is a maintainer script. Point GLYPHJET_WEB_DATA (env var or first arg)
+at your local checkout of the icon.quoc.app web project's data.json.
+
+Usage:
+    py -3.13 scripts/sync_data.py
+    GLYPHJET_WEB_DATA=/path/to/data.json py -3.13 scripts/sync_data.py
 """
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-WEB_DATA = Path(r"D:/pcloud/workspace/code/website/icon/public/data.json")
+WEB_DATA = Path(
+    os.environ.get("GLYPHJET_WEB_DATA")
+    or r"D:/pcloud/workspace/code/website/icon/public/data.json"
+)
 LOCAL_DATA = ROOT / "src" / "data.json"
 
 EXPECTED_COUNT = 14870

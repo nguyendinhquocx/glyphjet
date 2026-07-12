@@ -1,5 +1,5 @@
-# GlyphJet build artifacts (chỉ giữ PROGRESS local, docs được publish)
-.build/PROGRESS.md
+# GlyphJet build artifacts (local-only working notes)
+.build/
 
 # Dependencies
 node_modules/

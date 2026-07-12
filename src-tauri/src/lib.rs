@@ -1,12 +1,12 @@
 // GlyphJet — spotlight launcher for emoji, symbols and kaomoji.
 //
-// Module layout follows .build/STRUCTURE.md:
-//   commands.rs — Tauri IPC boundary (frontend gọi vào đây duy nhất)
+// Module layout:
+//   commands.rs — Tauri IPC boundary (frontend calls only these)
 //   hotkey.rs   — register/unregister global shortcut (Alt+; default)
 //   window.rs   — spotlight window show/hide/position/focus
 //   clipboard.rs — wrap clipboard-manager, CF_UNICODETEXT
 //   tray.rs     — system tray icon + menu
-//   settings.rs — tauri-plugin-store read/write (hotkey, startup, last_type, last_category)
+//   settings.rs — tauri-plugin-store read/write
 
 mod clipboard;
 mod commands;
@@ -19,8 +19,9 @@ use tauri::Manager;
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
 // Default hotkey: Alt+; (resolved at runtime, Win+; chỉ experimental option).
-// Theo ARCHITECTURE ADR-05: Win+; register không reliably (Microsoft reserve),
-// nên default dùng Alt+; an toàn, user có thể đổi trong Settings.
+// Win+; is reserved by Windows at a low level and cannot be reliably
+// overridden, so the default uses the safe Alt+; accelerator. Users can
+// change it in Settings.
 const DEFAULT_HOTKEY: &str = "Alt+;";
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]

@@ -1,4 +1,4 @@
-// state.ts — UI state single source of truth (STRUCTURE.md 5.2).
+// state.ts — UI state single source of truth.
 
 import type { IconType, UIState } from "./types";
 

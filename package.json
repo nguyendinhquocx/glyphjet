@@ -2,8 +2,31 @@
   "name": "glyphjet",
   "private": true,
   "version": "0.1.0",
+  "description": "A fast Windows spotlight launcher for emoji, Unicode symbols, and kaomoji.",
+  "license": "MIT",
+  "author": "Quoc Nguyen <quocnguyent10v@gmail.com>",
+  "homepage": "https://github.com/nguyendinhquocx/glyphjet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nguyendinhquocx/glyphjet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nguyendinhquocx/glyphjet/issues"
+  },
+  "keywords": [
+    "tauri",
+    "windows",
+    "emoji",
+    "kaomoji",
+    "symbols",
+    "unicode",
+    "launcher",
+    "spotlight",
+    "clipboard",
+    "rust",
+    "typescript"
+  ],
   "type": "module",
-  "description": "GlyphJet — instant emoji, symbols and kaomoji launcher for Windows",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
