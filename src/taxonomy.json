@@ -1,0 +1,346 @@
+{
+  "emoji": [
+    {
+      "id": "smileys",
+      "label": "Smileys & Emotion",
+      "categories": [
+        "smileys-emotion"
+      ]
+    },
+    {
+      "id": "people",
+      "label": "People & Body",
+      "categories": [
+        "people-body"
+      ]
+    },
+    {
+      "id": "animals",
+      "label": "Animals & Nature",
+      "categories": [
+        "animals-nature"
+      ]
+    },
+    {
+      "id": "food",
+      "label": "Food & Drink",
+      "categories": [
+        "food-drink"
+      ]
+    },
+    {
+      "id": "travel",
+      "label": "Travel & Places",
+      "categories": [
+        "travel-places"
+      ]
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "categories": [
+        "activities"
+      ]
+    },
+    {
+      "id": "objects",
+      "label": "Objects",
+      "categories": [
+        "objects"
+      ]
+    },
+    {
+      "id": "symbols-emoji",
+      "label": "Symbols",
+      "categories": [
+        "symbols"
+      ]
+    },
+    {
+      "id": "flags",
+      "label": "Flags",
+      "categories": [
+        "flags"
+      ]
+    }
+  ],
+  "symbol": [
+    {
+      "id": "arrows",
+      "label": "Arrows",
+      "categories": [
+        "arrows",
+        "supplemental-arrows",
+        "miscellaneous-and-arrows",
+        "transport-and-map"
+      ]
+    },
+    {
+      "id": "math",
+      "label": "Math",
+      "categories": [
+        "mathematical-operators",
+        "supplemental-mathematical-operators",
+        "miscellaneous-mathematical-symbols"
+      ]
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "categories": [
+        "currency"
+      ]
+    },
+    {
+      "id": "shapes",
+      "label": "Geometric Shapes",
+      "categories": [
+        "geometric-shapes",
+        "geometric-shapes-extended"
+      ]
+    },
+    {
+      "id": "technical",
+      "label": "Technical",
+      "categories": [
+        "miscellaneous-technical"
+      ]
+    },
+    {
+      "id": "text-punctuation",
+      "label": "Text & Punctuation",
+      "categories": [
+        "general-punctuation"
+      ]
+    },
+    {
+      "id": "letters-numbers",
+      "label": "Letters & Numbers",
+      "categories": [
+        "letterlike",
+        "number-forms",
+        "superscripts-and-subscripts",
+        "alphabetic-presentation-forms",
+        "greek-and-coptic",
+        "cyrillic"
+      ]
+    },
+    {
+      "id": "boxes-blocks",
+      "label": "Boxes & Blocks",
+      "categories": [
+        "box-drawing",
+        "block-elements"
+      ]
+    },
+    {
+      "id": "dingbats",
+      "label": "Dingbats",
+      "categories": [
+        "dingbats",
+        "ornamental-dingbats"
+      ]
+    },
+    {
+      "id": "games",
+      "label": "Games & Chess",
+      "categories": [
+        "chess"
+      ]
+    },
+    {
+      "id": "misc-symbol",
+      "label": "Miscellaneous",
+      "categories": [
+        "miscellaneous",
+        "miscellaneous-and-pictographs",
+        "supplemental-and-pictographs"
+      ]
+    }
+  ],
+  "kaomoji": [
+    {
+      "id": "happy",
+      "label": "Happy & Positive",
+      "categories": [
+        "happy",
+        "laughing",
+        "excited",
+        "friend",
+        "winking",
+        "wink",
+        "smug",
+        "thumbs-up",
+        "triumph-and-success",
+        "hello-and-hi",
+        "good-morning",
+        "good-night",
+        "thank-you",
+        "japanese-smiley-face",
+        "blushing",
+        "angel"
+      ]
+    },
+    {
+      "id": "love",
+      "label": "Love & Flirty",
+      "categories": [
+        "love",
+        "kissing",
+        "kiss",
+        "flirty",
+        "cute"
+      ]
+    },
+    {
+      "id": "shy",
+      "label": "Shy & Hiding",
+      "categories": [
+        "shy",
+        "hiding"
+      ]
+    },
+    {
+      "id": "sad",
+      "label": "Sad & Worried",
+      "categories": [
+        "sad",
+        "crying",
+        "worried",
+        "depressed",
+        "helpless",
+        "apologizing",
+        "nervous",
+        "giving-up"
+      ]
+    },
+    {
+      "id": "angry",
+      "label": "Angry & Violent",
+      "categories": [
+        "angry",
+        "fighting-weapons-and-violent",
+        "evil",
+        "devil",
+        "middle-finger",
+        "disapproval"
+      ]
+    },
+    {
+      "id": "table-flip",
+      "label": "Table Flip & Rage",
+      "categories": [
+        "table-flipping",
+        "flip-table"
+      ]
+    },
+    {
+      "id": "surprised",
+      "label": "Surprised & Confused",
+      "categories": [
+        "surprised",
+        "confused",
+        "meh",
+        "scared",
+        "wtf",
+        "weird"
+      ]
+    },
+    {
+      "id": "sick",
+      "label": "Sick & Hurt",
+      "categories": [
+        "hurt-or-sick",
+        "vomiting",
+        "dead",
+        "nose-bleed"
+      ]
+    },
+    {
+      "id": "thinking",
+      "label": "Thinking & Sleeping",
+      "categories": [
+        "thinking",
+        "sleeping",
+        "flexing",
+        "shrug"
+      ]
+    },
+    {
+      "id": "actions",
+      "label": "Actions",
+      "categories": [
+        "waving",
+        "running",
+        "dancing",
+        "saluting",
+        "hugging",
+        "writing",
+        "eating",
+        "please",
+        "holiday",
+        "christmas",
+        "music",
+        "other-action"
+      ]
+    },
+    {
+      "id": "cool",
+      "label": "Cool & Sunglasses",
+      "categories": [
+        "emoticons-with-sunglasses",
+        "sunglasses",
+        "mustache",
+        "crazy"
+      ]
+    },
+    {
+      "id": "animals-nature",
+      "label": "Animals & Nature",
+      "categories": [
+        "bear",
+        "cat",
+        "dog",
+        "bird",
+        "rabbit",
+        "sheep",
+        "monkey",
+        "pig",
+        "fish",
+        "spider",
+        "other-animal",
+        "flower"
+      ]
+    },
+    {
+      "id": "food-objects",
+      "label": "Food & Objects",
+      "categories": [
+        "food-and-drink",
+        "hungry",
+        "emoticon-objects",
+        "gun",
+        "sword",
+        "cloud"
+      ]
+    },
+    {
+      "id": "meme",
+      "label": "Meme & Character",
+      "categories": [
+        "character-and-meme",
+        "dongers",
+        "random"
+      ]
+    },
+    {
+      "id": "misc-kaomoji",
+      "label": "Misc",
+      "categories": [
+        "uncategorized",
+        "misc",
+        "other"
+      ]
+    }
+  ]
+}
