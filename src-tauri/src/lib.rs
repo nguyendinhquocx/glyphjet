@@ -16,6 +16,7 @@ mod tray;
 mod window;
 
 use tauri::Manager;
+use tauri_plugin_autostart::ManagerExt;
 use tauri_plugin_global_shortcut::GlobalShortcutExt;
 
 // Default hotkey: Alt+; (resolved at runtime, Win+; chỉ experimental option).
@@ -29,6 +30,10 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_clipboard_manager::init())
         .plugin(tauri_plugin_store::Builder::default().build())
+        .plugin(tauri_plugin_autostart::init(
+            tauri_plugin_autostart::MacosLauncher::LaunchAgent,
+            None,
+        ))
         .setup(|app| {
             let handle = app.handle().clone();
 
@@ -53,6 +58,22 @@ pub fn run() {
             let settings_loaded = settings::load_or_default(&handle);
             if let Err(error) = settings::save(&handle, &settings_loaded) {
                 eprintln!("[glyphjet] WARN: cannot persist settings: {error}");
+            }
+
+            // Sync autostart state with settings on every app launch. The plugin
+            // writes the registry Run key on Windows; settings is the source of
+            // truth so a reinstall or manual registry edit stays consistent.
+            let autostart_manager = handle.autolaunch();
+            let desired = settings_loaded.launch_on_startup;
+            let current = autostart_manager.is_enabled().unwrap_or(false);
+            if desired && !current {
+                if let Err(error) = autostart_manager.enable() {
+                    eprintln!("[glyphjet] WARN: cannot enable autostart: {error}");
+                }
+            } else if !desired && current {
+                if let Err(error) = autostart_manager.disable() {
+                    eprintln!("[glyphjet] WARN: cannot disable autostart: {error}");
+                }
             }
 
             // Register global shortcut default. Nếu fail, log warning + tiếp tục,
