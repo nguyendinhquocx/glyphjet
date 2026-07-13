@@ -7,7 +7,6 @@ use tauri::{Manager, Runtime, WebviewWindow};
 pub fn show<R: Runtime>(window: &WebviewWindow<R>) -> Result<(), tauri::Error> {
     window.show()?;
     window.set_focus()?;
-    window.center()?;
     Ok(())
 }
 

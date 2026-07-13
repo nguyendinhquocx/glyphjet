@@ -23,7 +23,7 @@ export function renderSearchBar(
   input.className = "i-search-input";
   input.type = "text";
   input.value = query;
-  input.placeholder = "Search emoji, symbols, kaomoji…";
+  input.placeholder = "";
   input.setAttribute("aria-label", "Search glyphs");
   input.autocomplete = "off";
   input.spellcheck = false;

@@ -112,6 +112,20 @@ function focusSearchInput(): void {
   });
 }
 
+function resetSearchOnPopupOpen(): void {
+  // Query is transient: reopening GlyphJet should always return to the saved
+  // browse type/category, never leave stale search results on screen.
+  const state = getState();
+  if (state.mode === "search" || state.query !== "" || state.results.length > 0) {
+    cancelPendingSearch();
+    searchFilter = "all";
+    setQuery("");
+    renderChrome();
+    renderContent();
+  }
+  focusSearchInput();
+}
+
 function cancelPendingSearch(): void {
   if (debounceTimer !== null) {
     window.clearTimeout(debounceTimer);
@@ -244,9 +258,9 @@ async function init(): Promise<void> {
     if (event.key === "Escape") void invoke("hide_popup").catch(() => undefined);
   });
 
-  // Focus bridge là desktop enhancement, không được phép làm UI đã render chết
-  // nếu dev/static preview không có Tauri event runtime.
-  void listen("tauri://focus", focusSearchInput).catch((error: unknown) => {
+  // The window is focused only when it is shown again, so this is the right
+  // lifecycle point to clear a previous query without losing browse state.
+  void listen("tauri://focus", resetSearchOnPopupOpen).catch((error: unknown) => {
     console.warn("[glyphjet] focus event unavailable", error);
   });
 }
