@@ -14,9 +14,15 @@ export function renderTabBar(
 ): HTMLElement {
   const bar = document.createElement("div");
   bar.className = "i-tab-bar";
-  for (const tab of TABS) {
+  bar.setAttribute("role", "tablist");
+  for (const [index, tab] of TABS.entries()) {
     const btn = document.createElement("button");
+    btn.type = "button";
     btn.className = "i-tab" + (tab.id === current ? " i-tab-active" : "");
+    btn.dataset.navZone = "tab";
+    btn.dataset.navIndex = String(index);
+    btn.setAttribute("role", "tab");
+    btn.setAttribute("aria-selected", String(tab.id === current));
     btn.textContent = tab.label;
     btn.addEventListener("click", () => onSelect(tab.id));
     bar.appendChild(btn);

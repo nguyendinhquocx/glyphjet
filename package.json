@@ -1,7 +1,7 @@
 {
   "name": "glyphjet",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A fast Windows spotlight launcher for emoji, Unicode symbols, and kaomoji.",
   "license": "MIT",
   "author": "Quoc Nguyen <quocnguyent10v@gmail.com>",

@@ -15,6 +15,7 @@ import { renderGrid } from "./ui/grid";
 import { renderSearchResults } from "./ui/search-results";
 import { renderSearchBar } from "./ui/search-bar";
 import { renderEmpty, renderLoading } from "./ui/empty";
+import { installKeyboardNavigation } from "./keyboard-navigation";
 import type { IconItem, IconType } from "./types";
 
 const DEBOUNCE_MS = 80;
@@ -253,6 +254,8 @@ async function init(): Promise<void> {
 
   renderChrome();
   renderContent();
+
+  installKeyboardNavigation();
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") void invoke("hide_popup").catch(() => undefined);

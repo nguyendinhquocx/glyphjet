@@ -24,6 +24,7 @@ export function renderSearchBar(
   input.type = "text";
   input.value = query;
   input.placeholder = "";
+  input.dataset.navZone = "search";
   input.setAttribute("aria-label", "Search glyphs");
   input.autocomplete = "off";
   input.spellcheck = false;
@@ -36,10 +37,12 @@ export function renderSearchBar(
     const filters = document.createElement("div");
     filters.className = "i-filter-row";
     filters.setAttribute("aria-label", "Search result type");
-    for (const item of FILTERS) {
+    for (const [index, item] of FILTERS.entries()) {
       const chip = document.createElement("button");
       chip.type = "button";
       chip.className = "i-filter" + (item.id === filter ? " i-filter-active" : "");
+      chip.dataset.navZone = "filter";
+      chip.dataset.navIndex = String(index);
       chip.textContent = item.label;
       chip.setAttribute("aria-pressed", String(item.id === filter));
       chip.addEventListener("click", () => onFilter(item.id));

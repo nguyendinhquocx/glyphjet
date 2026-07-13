@@ -10,10 +10,12 @@ export function renderGrid(items: IconItem[], onPick: GridPickHandler): HTMLElem
   const isKaomojiGrid = items.length > 0 && items.every((item) => item.y === "kaomoji");
   grid.className = "i-grid" + (isKaomojiGrid ? " i-grid-kaomoji" : "");
 
-  for (const item of items) {
+  for (const [index, item] of items.entries()) {
     const cell = document.createElement("button");
     cell.type = "button";
     cell.className = "i-cell";
+    cell.dataset.navZone = "grid";
+    cell.dataset.navIndex = String(index);
     cell.title = item.n || item.t;
     cell.setAttribute("aria-label", item.n || item.t);
 
