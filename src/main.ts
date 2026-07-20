@@ -207,7 +207,14 @@ function onGroupChange(groupId: string): void {
   void saveBrowseState(state.currentType, groupId).catch((error: unknown) => {
     console.warn("[glyphjet] cannot save browse state", error);
   });
-  renderChrome();
+
+  // Toggle the active chip in place instead of rebuilding the whole chrome.
+  // Rebuilding would reset the horizontal scroll position and snap the chip
+  // bar back to the first group, which feels broken when the user just
+  // scrolled over to pick a later group.
+  document.querySelectorAll(".i-chip").forEach((chip) => {
+    chip.classList.toggle("i-chip-active", chip.getAttribute("data-group-id") === groupId);
+  });
   renderContent();
 }
 
@@ -230,8 +237,14 @@ function showCopyFeedback(cell: HTMLButtonElement, glyph: string, copied: boolea
 }
 
 async function init(): Promise<void> {
-  // Index build xảy ra lúc app process start khi spotlight còn ẩn, để hotkey mở
-  // là browse/search có ngay, không đơ lần dùng đầu.
+  // Attach the focus listener before any heavy work so the first popup show
+  // is not missed while the search index is still building.
+  void listen("tauri://focus", resetSearchOnPopupOpen).catch((error: unknown) => {
+    console.warn("[glyphjet] focus event unavailable", error);
+  });
+
+  // Index build happens while the spotlight is still hidden, so the first
+  // hotkey open has browse/search ready instantly.
   ensureSearchInit();
   const settings = await getSettings();
 
@@ -254,17 +267,14 @@ async function init(): Promise<void> {
 
   renderChrome();
   renderContent();
+  // Focus the input once the initial UI is mounted so the very first open
+  // lands the caret in search without needing a separate focus event.
+  focusSearchInput();
 
   installKeyboardNavigation();
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") void invoke("hide_popup").catch(() => undefined);
-  });
-
-  // The window is focused only when it is shown again, so this is the right
-  // lifecycle point to clear a previous query without losing browse state.
-  void listen("tauri://focus", resetSearchOnPopupOpen).catch((error: unknown) => {
-    console.warn("[glyphjet] focus event unavailable", error);
   });
 }
 

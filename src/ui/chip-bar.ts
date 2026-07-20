@@ -17,6 +17,7 @@ export function renderChipBar(
     chip.className = "i-chip" + (group.id === currentGroup ? " i-chip-active" : "");
     chip.dataset.navZone = "chip";
     chip.dataset.navIndex = String(index);
+    chip.dataset.groupId = group.id;
     chip.setAttribute("aria-pressed", String(group.id === currentGroup));
     chip.textContent = group.label;
     chip.addEventListener("click", () => onSelect(group.id));
