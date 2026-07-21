@@ -1,12 +1,16 @@
 // window.rs — spotlight window show/hide/position/focus.
 // Window "spotlight" config ở tauri.conf.json: borderless, transparent, always_on_top, skipTaskbar.
 
-use tauri::{Manager, Runtime, WebviewWindow};
+use tauri::{Emitter, Manager, Runtime, WebviewWindow};
 
 /// Show spotlight + steal focus. Không destroy webview (giữ index/data warm).
 pub fn show<R: Runtime>(window: &WebviewWindow<R>) -> Result<(), tauri::Error> {
     window.show()?;
     window.set_focus()?;
+    // Native window focus events are unreliable on first show in WebView2, so
+    // emit an explicit event the frontend can rely on to focus the search
+    // input and clear any stale query.
+    let _ = window.emit("glyphjet-shown", ());
     Ok(())
 }
 

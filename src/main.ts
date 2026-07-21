@@ -239,7 +239,7 @@ function showCopyFeedback(cell: HTMLButtonElement, glyph: string, copied: boolea
 async function init(): Promise<void> {
   // Attach the focus listener before any heavy work so the first popup show
   // is not missed while the search index is still building.
-  void listen("tauri://focus", resetSearchOnPopupOpen).catch((error: unknown) => {
+  void listen("glyphjet-shown", resetSearchOnPopupOpen).catch((error: unknown) => {
     console.warn("[glyphjet] focus event unavailable", error);
   });
 
