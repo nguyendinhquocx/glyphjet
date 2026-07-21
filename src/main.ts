@@ -114,16 +114,14 @@ function focusSearchInput(): void {
 }
 
 function resetSearchOnPopupOpen(): void {
-  // Query is transient: reopening GlyphJet should always return to the saved
-  // browse type/category, never leave stale search results on screen.
-  const state = getState();
-  if (state.mode === "search" || state.query !== "" || state.results.length > 0) {
-    cancelPendingSearch();
-    searchFilter = "all";
-    setQuery("");
-    renderChrome();
-    renderContent();
-  }
+  // Every open starts from the first view: Emoji → Smileys, empty query.
+  // Nothing about the last session (tab, category, search) is carried over.
+  cancelPendingSearch();
+  searchFilter = "all";
+  setBrowse("emoji", getDefaultGroup("emoji"));
+  setQuery("");
+  renderChrome();
+  renderContent();
   focusSearchInput();
 }
 

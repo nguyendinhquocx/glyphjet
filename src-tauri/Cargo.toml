@@ -1,6 +1,6 @@
 [package]
 name = "glyphjet"
-version = "0.1.4"
+version = "0.1.5"
 description = "GlyphJet — instant emoji, symbols and kaomoji launcher"
 authors = ["Quoc"]
 edition = "2021"
